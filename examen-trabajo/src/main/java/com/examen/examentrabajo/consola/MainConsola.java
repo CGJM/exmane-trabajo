@@ -21,8 +21,28 @@ public class MainConsola {
         ConsolaProjectService cps = new ConsolaProjectService();
         //Persona objeto para calcular IMC
         Persona persona = new Persona(nombre, edad, cps.generaNSS(), sexo.charAt(0), peso, altura);
-        System.out.println("IMC: " + cps.calcularIMC(persona));
-        System.out.println("Mayor de edad: " + cps.esMayorDeEdad(persona));
-        System.out.println("To string: " + cps.toString(persona));
+
+        System.out.println("---------------------------------------");
+        if (cps.calcularIMC(persona) == 1)
+            System.out.println("Usted tiene sobrepeso");
+
+        if (cps.calcularIMC(persona) == 0)
+            System.out.println("Usted está en su peso ideal");
+
+        if (cps.calcularIMC(persona) == -1)
+            System.out.println("Usted está por debajo de su peso ideal");
+
+        if (cps.esMayorDeEdad(persona))
+            System.out.println("Es mayor de edad");
+        else
+            System.out.println("Es menor de edad");
+
+        System.out.println("---------------------------------------");
+        System.out.println("Nombre: "+persona.getNombre());
+        System.out.println("Edad: "+persona.getEdad());
+        System.out.println("NSS: "+persona.getNss());
+        System.out.println("Sexo: "+persona.getSexo());
+        System.out.println("Peso: "+persona.getPeso());
+        System.out.println("Altura: "+persona.getPeso());
     }
 }
